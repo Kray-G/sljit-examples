@@ -22,8 +22,8 @@ int main(void)
     /* To support almost all architechtures */
     sljit_emit_enter(C, 0,
         SLJIT_ARG1(SW),         /* argument type */
-        6,  /* scratch  : temporary R0-R6   */
-        6,  /* saved    : safety    S0-S6   */
+        6,  /* scratch  : temporary R0-R5   */
+        6,  /* saved    : safety    S0-S5   */
         6,  /* fscratch : temporary FR0-FR6 */
         0,  /* fsaved   : safety    -       */
         0   /* local    :                   */
