@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="udcli.c">
+    <ClCompile Include="..\udcli\udcli.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
