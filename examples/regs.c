@@ -32,18 +32,18 @@ func_t generate_code(struct sljit_compiler *C)
 
     /* Registers check */
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_R3, 0, SLJIT_IMM, 13);
+    gen_print_code(C, 'r', 3, SLJIT_R3);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_R4, 0, SLJIT_IMM, 14);
+    gen_print_code(C, 'r', 4, SLJIT_R4);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_R5, 0, SLJIT_IMM, 15);
+    gen_print_code(C, 'r', 5, SLJIT_R5);
+
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S0, 0, SLJIT_IMM, 20);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S1, 0, SLJIT_IMM, 21);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S2, 0, SLJIT_IMM, 22);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S3, 0, SLJIT_IMM, 23);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S4, 0, SLJIT_IMM, 24);
     sljit_emit_op1(C, SLJIT_MOV, SLJIT_S5, 0, SLJIT_IMM, 25);
-
-    gen_print_code(C, 'r', 3, SLJIT_R3);
-    gen_print_code(C, 'r', 4, SLJIT_R4);
-    gen_print_code(C, 'r', 5, SLJIT_R5);
     gen_print_code(C, 's', 1, SLJIT_S1);
     gen_print_code(C, 's', 2, SLJIT_S2);
     gen_print_code(C, 's', 3, SLJIT_S3);
@@ -63,6 +63,8 @@ int main(void)
 
     /* generate code */
     func_t code = generate_code(C);
+    int len = get_code_code(C);
+    disasm_code(code, len);
     code();
 
     /* clean up */
